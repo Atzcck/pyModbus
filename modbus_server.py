@@ -25,7 +25,7 @@ class ModbusServer:
             ir=ModbusSequentialDataBlock(0, [0]*100),
         )
          # Use device IDs instead of slave(s)
-        self.context = ModbusServerContext(devices= {1: device_context}, single= False,)
+        self.context = ModbusServerContext(devices= {1: device_context}, single= False)
 
     def start(self):
         """Start the Modbus TCP server (blocking)."""
