@@ -7,12 +7,12 @@ if client.connect():
 
     # Write a coil (True/False)
     client.write_coil(0, True)
-    result = client.read_coils(address=0, count=5, device_id=1, no_response_expected=False)
+    result = client.read_coils(address=0, count=5, device_id=1)
     print("Coils:", result.bits)
 
     # Write a holding register (integer value)
     client.write_register(0, 123)
-    result = client.read_holding_registers(address=0, count=5, device_id=1, no_response_expected= False)
+    result = client.read_holding_registers(address=0, count=5, device_id=1)
     print("Holding Registers:", result.registers)
 
     client.close()

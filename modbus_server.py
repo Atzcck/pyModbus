@@ -17,14 +17,15 @@ class ModbusServer:
 
         # Create Modbus datastore (holding registers, coils, etc.)
         # Here: holding registers [0-99] initialized with value 0
+
         device_context = ModbusDeviceContext(
-            di=ModbusSequentialDataBlock(0, [0] * 100),  # Discrete Inputs
-            co=ModbusSequentialDataBlock(0, [0] * 100),  # Coils
-            hr=ModbusSequentialDataBlock(0, [0] * 100),  # Holding Registers
-            ir=ModbusSequentialDataBlock(0, [0] * 100)   # Input Registers
+            di=ModbusSequentialDataBlock(0, [0]*100),
+            co=ModbusSequentialDataBlock(0, [0]*100),
+            hr=ModbusSequentialDataBlock(0, [0]*100),
+            ir=ModbusSequentialDataBlock(0, [0]*100),
         )
          # Use device IDs instead of slave(s)
-        self.context = ModbusServerContext(devices= {1: device_context})
+        self.context = ModbusServerContext(devices= {1: device_context}, single= False,)
 
     def start(self):
         """Start the Modbus TCP server (blocking)."""
